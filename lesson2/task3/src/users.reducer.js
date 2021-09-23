@@ -11,15 +11,15 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         usersList: state.usersList.concat({
-          userName: action.name,
-          userId: action.id,
+          name: action.name,
+          id: action.id,
         }),
       };
     }
     case DELETEUSER: {
       return {
         ...state,
-        usersList: state.usersList.filter((user) => user.userId !== action.id),
+        usersList: state.usersList.filter((user) => user.id !== action.id),
       };
     }
   }

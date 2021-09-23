@@ -1,11 +1,11 @@
 const ADDUSER = 'ADDUSER';
 const DELETEUSER = 'DELETEUSER';
 
-export const addUser = (id, name) => {
+export const addUser = (user) => {
   return {
     type: ADDUSER,
-    id,
-    name,
+    id: user.id,
+    name: user.name,
   };
 };
 

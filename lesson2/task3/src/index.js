@@ -1,9 +1,11 @@
 import store from './store.js';
 import { deleteUser, addUser } from './users.actions.js';
 
-store.dispatch(addUser(1, 'new User'));
-store.dispatch(deleteUser(1));
-store.dispatch(addUser(2, 'New User'));
+store.dispatch(addUser({ id: 76, name: 'Sarah' }));
+store.dispatch(deleteUser(76));
+store.dispatch(addUser({ id: 2, name: 'Tom' }));
+
+console.log(store.getState());
 
 store.subscribe(() => {
   console.log(store.getState());
