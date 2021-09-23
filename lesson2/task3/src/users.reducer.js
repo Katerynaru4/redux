@@ -22,6 +22,8 @@ const usersReducer = (state = initialState, action) => {
         usersList: state.usersList.filter((user) => user.id !== action.id),
       };
     }
+    default:
+      return state;
   }
 };
 
