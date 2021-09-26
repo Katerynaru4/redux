@@ -37,7 +37,6 @@ class Users extends React.Component {
   }
 }
 const mapState = (state) => {
-  console.log(state);
   return { users: state.usersList };
 };
 const mapDispatch = {
@@ -47,3 +46,20 @@ const mapDispatch = {
 const connector = connect(mapState, mapDispatch);
 const connectedUsers = connector(Users);
 export default connectedUsers;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
