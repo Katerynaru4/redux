@@ -4,19 +4,19 @@ import Pagination from './Pagination.jsx';
 import User from './User.jsx';
 import * as pageActions from './users.actions';
 
-const UsersList = ({ users, goNext, goPrev }) => {
-  const usersPerPage = users.usersList.filter(
+const UsersList = ({ users, currentPage, goNext, goPrev }) => {
+  const usersPerPage = users.filter(
     (user, index) =>
-      index >= users.usersList.length - 3 * (users.currentPage + 1) &&
-      index < users.usersList.length - 3 * users.currentPage 
+      index >= users.length - 3 * (currentPage + 1) &&
+      index < users.length - 3 * currentPage
   );
   return (
     <div>
       <Pagination
         goPrev={goPrev}
         goNext={goNext}
-        currentPage={users.currentPage}
-        totalItems={users.usersList.length}
+        currentPage={currentPage}
+        totalItems={users.length}
       />
       <ul className="users">
         {usersPerPage.map((user) => (
@@ -29,10 +29,8 @@ const UsersList = ({ users, goNext, goPrev }) => {
 
 const mapState = (state) => {
   return {
-    users: {
-      usersList: state.usersList,
-      currentPage: state.currentPage,
-    },
+    users: state.users.usersList,
+    currentPage: state.users.currentPage,
   };
 };
 const mapDispatch = {

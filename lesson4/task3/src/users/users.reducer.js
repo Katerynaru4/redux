@@ -1,4 +1,5 @@
 import { GO_NEXT, GO_PREV } from './users.actions';
+
 const users = [
   {
     id: 'id-0',
@@ -25,7 +26,26 @@ const users = [
     age: 45,
     name: 'Franklin',
   },
-
+  {
+    id: 'id-5',
+    age: 45,
+    name: 'John',
+  },
+  {
+    id: 'id-6',
+    age: 45,
+    name: 'Andrew',
+  },
+  {
+    id: 'id-7',
+    age: 45,
+    name: 'Pol',
+  },
+  {
+    id: 'id-8',
+    age: 45,
+    name: 'Ron',
+  },
 ];
 const initialState = {
   usersList: users,
