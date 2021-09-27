@@ -40,7 +40,7 @@ const users = [
 
 const initialState = {
   usersList: users,
-  currentPage: 0,
+  currentPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {
