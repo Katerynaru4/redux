@@ -5,17 +5,13 @@ import User from './User.jsx';
 import * as pageActions from './users.actions';
 
 const UsersList = ({ users, currentPage, goNext, goPrev }) => {
-  const usersPerPage = users.filter(
-    (user, index) =>
-      index >= users.length - 3 * (currentPage + 1) &&
-      index < users.length - 3 * currentPage
-  );
+  const usersPerPage = users.slice(currentPage * 3, currentPage * 3 + 3);
   return (
     <div>
       <Pagination
         goPrev={goPrev}
         goNext={goNext}
-        currentPage={currentPage}
+        currentPage={currentPage + 1}
         totalItems={users.length}
       />
       <ul className="users">
