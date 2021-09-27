@@ -21,23 +21,23 @@ const users = [
     age: 45,
     name: 'Justin',
   },
-
-  // {
-  //   id: 'id-6',
-  //   age: 45,
-  //   name: 'Andrew',
-  // },
-  // {
-  //   id: 'id-7',
-  //   age: 45,
-  //   name: 'Pol',
-  // },
-  // {
-  //   id: 'id-8',
-  //   age: 45,
-  //   name: 'Ron',
-  // },
+  {
+    id: 'id-6',
+    age: 45,
+    name: 'Andrew',
+  },
+  {
+    id: 'id-7',
+    age: 45,
+    name: 'Pol',
+  },
+  {
+    id: 'id-8',
+    age: 45,
+    name: 'Ron',
+  },
 ];
+
 const initialState = {
   usersList: users,
   currentPage: 0,
