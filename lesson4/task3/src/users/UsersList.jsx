@@ -5,10 +5,9 @@ import User from './User.jsx';
 import * as pageActions from './users.actions';
 
 const UsersList = ({ users, currentPage, goNext, goPrev }) => {
-  const usersPerPage = users.slice(
-    (currentPage - 1) * 3,
-    (currentPage - 1) * 3 + 3
-  );
+  const usersPerPage = users
+    .sort((a, b) => a.age - b.age)
+    .slice((currentPage - 1) * 3, (currentPage - 1) * 3 + 3);
   return (
     <div>
       <Pagination
@@ -39,17 +38,3 @@ const mapDispatch = {
 const connector = connect(mapState, mapDispatch);
 
 export default connector(UsersList);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
