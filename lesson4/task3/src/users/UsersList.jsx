@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import Pagination from './Pagination.jsx';
 import User from './User.jsx';
 import * as pageActions from './users.actions';
+import { usersListSelector, currentPageSelector } from './users.selectors';
+
+const itemsPerPage = 3;
 
 const UsersList = ({ users, currentPage, goNext, goPrev }) => {
-  const usersPerPage = users
+  const usersToDisplay = users
     .sort((a, b) => a.age - b.age)
     .slice((currentPage - 1) * 3, (currentPage - 1) * 3 + 3);
+
   return (
     <div>
       <Pagination
@@ -15,9 +19,10 @@ const UsersList = ({ users, currentPage, goNext, goPrev }) => {
         goNext={goNext}
         currentPage={currentPage}
         totalItems={users.length}
+        itemsPerPage={itemsPerPage}
       />
       <ul className="users">
-        {usersPerPage.map((user) => (
+        {usersToDisplay.map((user) => (
           <User key={user.id} name={user.name} age={user.age} />
         ))}
       </ul>
@@ -27,14 +32,13 @@ const UsersList = ({ users, currentPage, goNext, goPrev }) => {
 
 const mapState = (state) => {
   return {
-    users: state.users.usersList,
-    currentPage: state.users.currentPage,
+    users: usersListSelector(state),
+    currentPage: currentPageSelector(state),
   };
 };
 const mapDispatch = {
   goNext: pageActions.goNext,
   goPrev: pageActions.goPrev,
 };
-const connector = connect(mapState, mapDispatch);
 
-export default connector(UsersList);
+export default connect(mapState, mapDispatch)(UsersList);
