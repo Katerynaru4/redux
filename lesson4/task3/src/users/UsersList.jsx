@@ -8,10 +8,10 @@ import { usersListSelector, currentPageSelector } from './users.selectors';
 const itemsPerPage = 3;
 
 const UsersList = ({ users, currentPage, goNext, goPrev }) => {
-  const usersToDisplay = users
-    .sort((a, b) => a.age - b.age)
-    .slice((currentPage - 1) * 3, (currentPage - 1) * 3 + 3);
-
+  const usersToDisplay = users.slice(
+    currentPage * itemsPerPage,
+    currentPage * itemsPerPage + itemsPerPage
+  );
   return (
     <div>
       <Pagination
