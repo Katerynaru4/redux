@@ -11,7 +11,7 @@ const UsersList = ({ users, currentPage, goNext, goPrev }) => {
     (currentPage - 1) * 3,
     (currentPage - 1) * 3 + 3
   );
-
+  console.log(sortedUsers, usersToDisplay);
   return (
     <div>
       <Pagination
