@@ -6,9 +6,11 @@ import * as pageActions from './users.actions';
 import { usersListSelector, currentPageSelector } from './users.selectors';
 
 const UsersList = ({ users, currentPage, goNext, goPrev }) => {
-  let usersToDisplay = users
-    .slice((currentPage - 1) * 3, (currentPage - 1) * 3 + 3)
-    .sort((a, b) => a.age - b.age);
+  const sortedUsers = users.slice().sort((a, b) => a.age - b.age);
+  let usersToDisplay = sortedUsers.slice(
+    (currentPage - 1) * 3,
+    (currentPage - 1) * 3 + 3
+  );
 
   return (
     <div>
